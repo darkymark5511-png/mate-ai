@@ -18,11 +18,10 @@
       useTitle: "Using it",
       useSteps: "<li>Open a live game or puzzle on Chess.com.</li><li>Pick an Elo level or playstyle in the widget.</li><li>Arrows show candidate moves. Combat mode digs deeper.</li><li>Humanizer softens accuracy so the line looks less perfect.</li>",
       crBuilt: "Built by <strong>BagasValzz</strong>.",
-      crEngine: "Engine: Stockfish 18 (WASM). UI: liquid glass overlay.",
-      crOpen: "100% open source. Copy it, change it, sell it, claim it. I made this to kill the $80 engine tax.",
+      crEngine: "Engine: Stockfish 18 (WASM). UI: Liquid Glass.",
+      crOpen: "100% open source. Copy it, change it, sell it. I made this to kill the $80 engine tax.",
       crSpite: "Fuck Titan Chess and their paywall.",
       crContact: "Need me: Discord.",
-      crFischer: "Silhouette: Bobby Fischer. Still the sharpest mind to sit at a board.",
       footer: "Mate.ai · Early Access · Stockfish 18"
     },
     id: {
@@ -43,11 +42,10 @@
       useTitle: "Cara pakai",
       useSteps: "<li>Buka game live atau puzzle di Chess.com.</li><li>Pilih level Elo atau playstyle di widget.</li><li>Panah menampilkan kandidat langkah. Mode combat menganalisis lebih dalam.</li><li>Humanizer meredam akurasi supaya garis tidak terlihat sempurna.</li>",
       crBuilt: "Dibuat oleh <strong>BagasValzz</strong>.",
-      crEngine: "Engine: Stockfish 18 (WASM). UI: overlay liquid glass.",
-      crOpen: "100% open source. Silakan copy, ubah, jual, atau klaim. Saya buat ini untuk menghabisi pajak engine $80.",
+      crEngine: "Engine: Stockfish 18 (WASM). UI: Liquid Glass.",
+      crOpen: "100% open source. Silakan copy, ubah, jual. Saya buat ini untuk menghabisi pajak engine $80.",
       crSpite: "Fuck Titan Chess dan paywall-nya.",
       crContact: "Butuh kontak: Discord.",
-      crFischer: "Siluet: Bobby Fischer. Masih otak paling tajam yang pernah duduk di papan.",
       footer: "Mate.ai · Akses Awal · Stockfish 18"
     }
   };
