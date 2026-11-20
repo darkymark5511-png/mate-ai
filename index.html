@@ -5,26 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mate.ai — Early Access</title>
   <meta name="description" content="Free Stockfish 18 overlay for Chess.com. Early access by BagasValzz." />
-  <meta name="theme-color" content="#0B0D10" />
+  <meta name="theme-color" content="#0a0a0a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-sil" aria-hidden="true">
-    <svg class="fischer" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill="currentColor" d="M100 8c-18 0-32 14-36 32-2 8-1 16 2 24 4 10 6 18 4 28-1 6-4 12-8 16-6 6-10 14-10 24v18c0 8 2 14 6 20 3 4 4 10 2 16-2 8-8 14-14 20-4 4-6 10-6 16 0 14 10 26 24 30 4 1 8 4 10 8 2 6 0 12-2 18-1 4 0 8 2 12 4 8 14 12 24 10 6-1 12-4 16-8 2-2 4-2 6 0 4 4 10 7 16 8 10 2 20-2 24-10 2-4 3-8 2-12-2-6-4-12-2-18 2-4 6-7 10-8 14-4 24-16 24-30 0-6-2-12-6-16-6-6-12-12-14-20-2-6-1-12 2-16 4-6 6-12 6-20v-18c0-10-4-18-10-24-4-4-7-10-8-16-2-10 0-18 4-28 3-8 4-16 2-24C132 22 118 8 100 8z"/>
-      <ellipse cx="100" cy="48" rx="28" ry="32" fill="currentColor"/>
-    </svg>
-  </div>
-
   <header class="top">
     <div class="brand">
-      <span class="logo" aria-hidden="true">♛</span>
+      <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M19 22H5v-2h14v2zM13 2l-2 4-2-1-2 4 2 4-1 5h10l-1-5 2-4-2-4-2 1-2-4z" fill="currentColor"/>
+      </svg>
       <div>
         <strong>Mate.ai</strong>
-        <span class="ver" data-i18n="badge">Early Access</span>
+        <span class="ver" data-i18n="badge">EARLY ACCESS</span>
       </div>
     </div>
     <div class="lang" role="group" aria-label="Language">
@@ -36,7 +31,7 @@
   <main>
     <section class="hero">
       <p class="kicker" data-i18n="kicker">Stockfish 18 · Chess.com overlay</p>
-      <h1 data-i18n="title">Free engine. No $80 paywall.</h1>
+      <h1 data-i18n="title">Free engine.<br>No $80 paywall.</h1>
       <p class="lead" data-i18n="lead">Mate.ai is an early-access Chrome extension that runs Stockfish 18 in your browser on Chess.com. Built to replace paid overlays.</p>
     </section>
 
@@ -68,7 +63,7 @@
           <ol data-i18n-html="mobSteps">
             <li>Install <strong>Lemur Browser</strong> from the Play Store (supports Chrome extensions).</li>
             <li>Download the ZIP on your phone and unzip it (Files app or a zip tool).</li>
-            <li>In Lemur, open the extensions page (often via menu → Extensions, or try <code>chrome://extensions</code>).</li>
+            <li>In Lemur, open the extensions page (menu → Extensions, or try <code>chrome://extensions</code>).</li>
             <li>Enable Developer mode, then <strong>Load unpacked</strong> and point at the unzipped folder.</li>
             <li>Go to Chess.com in that browser and start a game.</li>
           </ol>
