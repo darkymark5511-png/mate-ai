@@ -1,11 +1,16 @@
 (function () {
   "use strict";
 
+  const ZIP_URL = "https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip";
+
   const dict = {
     en: {
-      navGuide: "Guide",
-      navCredits: "Credits",
       navDownload: "Download",
+      navHome: "Home",
+      navInstall: "Install",
+      navTutorial: "Tutorial",
+      navDonate: "Donate",
+      navCredits: "Credits",
       kicker: "Stockfish 18 \u00b7 Chess.com overlay",
       title: "Free engine.<br>No <em>$80</em> paywall.",
       lead: "Mate.ai is an early-access Chrome extension that runs Stockfish 18 in your browser on Chess.com. Built as a free alternative to paid overlays.",
@@ -28,12 +33,13 @@
       f5d: "Auto-solve Chess.com puzzles with human delay. Toggle from the widget.",
       f6t: "Castling rights",
       f6d: "Tracks king and rook motion so FEN castling flags stay honest after pieces return.",
+      bandTitle: "Ready when you are.",
+      bandLead: "Early access ZIP. Unzip, load unpacked, play. Free.",
       installKicker: "Install",
       installTitle: "Load unpacked. Start a game.",
       installLead: "Two paths. Desktop first, mobile if you are on Android with Lemur.",
       tabPc: "Desktop",
       tabMob: "Mobile",
-      tabUse: "Using it",
       pc1t: "Download the ZIP",
       pc1d: "Use the button above or in the nav. Unzip so you can see manifest.json.",
       pc2t: "Open extensions",
@@ -51,14 +57,20 @@
       mob4t: "Play on Chess.com",
       mob4d: "Use Chess.com inside Lemur. iOS Safari cannot load this extension type.",
       mobNote: "Android only for mobile. Desktop path above is the reliable route.",
+      tutKicker: "Tutorial",
+      tutTitle: "How to use it.",
+      tutLead: "Three steps from first open to first analysis.",
       use1t: "Pick Elo or playstyle",
       use1d: "Open the widget. Choose a level or a named style (Tal, Petrosian, etc.).",
       use2t: "Read the arrows",
       use2d: "MultiPV candidates with softmax percentages. Combat mode digs deeper.",
       use3t: "Humanizer on",
       use3d: "Mistake rate and delay scale with time control so the session looks less engine-perfect.",
-      bandTitle: "Ready when you are.",
-      bandLead: "Early access ZIP. Unzip, load unpacked, play. Free.",
+      donKicker: "Support",
+      donTitle: "Keep it free.",
+      donLead: "Mate.ai is free. If it helps you, a tip on Saweria keeps development going.",
+      donBtn: "Support on Saweria",
+      donNote: "Not required. Downloads stay free either way.",
       crKicker: "Credits",
       crTitle: "Who built this.",
       crBuilt: "Built by <strong>BagasValzz</strong>.",
@@ -70,9 +82,12 @@
       footerCopy: "Mate.ai \u00b7 Early Access \u00b7 Free"
     },
     id: {
-      navGuide: "Panduan",
-      navCredits: "Kredit",
       navDownload: "Unduh",
+      navHome: "Beranda",
+      navInstall: "Pasang",
+      navTutorial: "Tutorial",
+      navDonate: "Donasi",
+      navCredits: "Kredit",
       kicker: "Stockfish 18 \u00b7 Overlay Chess.com",
       title: "Engine gratis.<br>Tanpa paywall <em>$80</em>.",
       lead: "Mate.ai adalah ekstensi Chrome versi akses awal yang menjalankan Stockfish 18 langsung di browser untuk Chess.com. Alternatif gratis untuk overlay berbayar.",
@@ -95,12 +110,13 @@
       f5d: "Selesaikan puzzle Chess.com otomatis dengan jeda manusiawi. Aktifkan dari widget.",
       f6t: "Hak castling",
       f6d: "Melacak gerak raja dan benteng supaya flag castling di FEN tetap akurat.",
+      bandTitle: "Siap kapan saja.",
+      bandLead: "ZIP akses awal. Ekstrak, load unpacked, main. Gratis.",
       installKicker: "Pemasangan",
       installTitle: "Load unpacked. Mulai main.",
       installLead: "Dua jalur. Desktop dulu; mobile jika kamu pakai Android + Lemur.",
       tabPc: "Desktop",
       tabMob: "Mobile",
-      tabUse: "Cara pakai",
       pc1t: "Unduh ZIP",
       pc1d: "Pakai tombol di atas atau di navigasi. Ekstrak sampai terlihat manifest.json.",
       pc2t: "Buka halaman ekstensi",
@@ -118,14 +134,20 @@
       mob4t: "Main di Chess.com",
       mob4d: "Buka Chess.com di dalam Lemur. iOS Safari tidak mendukung tipe ekstensi ini.",
       mobNote: "Mobile hanya untuk Android. Jalur desktop di atas yang paling stabil.",
+      tutKicker: "Tutorial",
+      tutTitle: "Cara pakainya.",
+      tutLead: "Tiga langkah dari buka pertama sampai analisis pertama.",
       use1t: "Pilih Elo atau gaya",
       use1d: "Buka widget. Pilih level atau gaya bernama (Tal, Petrosian, dan seterusnya).",
       use2t: "Baca panah",
       use2d: "Kandidat MultiPV dengan persentase softmax. Mode combat menganalisis lebih dalam.",
       use3t: "Humanizer aktif",
       use3d: "Tingkat kesalahan dan jeda mengikuti time control supaya sesi tidak terlihat terlalu sempurna.",
-      bandTitle: "Siap kapan saja.",
-      bandLead: "ZIP akses awal. Ekstrak, load unpacked, main. Gratis.",
+      donKicker: "Dukung",
+      donTitle: "Biar tetap gratis.",
+      donLead: "Mate.ai gratis. Kalau membantu, dukungan lewat Saweria membantu pengembangan terus.",
+      donBtn: "Dukung di Saweria",
+      donNote: "Tidak wajib. Unduhan tetap gratis.",
       crKicker: "Kredit",
       crTitle: "Siapa yang membuat ini.",
       crBuilt: "Dibuat oleh <strong>BagasValzz</strong>.",
@@ -140,25 +162,19 @@
 
   const STORAGE_KEY = "mate-lang";
   const DEFAULT_LANG = "en";
+  const PAGES = ["home", "install", "tutorial", "donate", "credits"];
 
+  /* ---------- Storage ---------- */
   function readStoredLang() {
-    try {
-      return localStorage.getItem(STORAGE_KEY);
-    } catch (e) {
-      return null;
-    }
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
-
   function saveLang(lang) {
-    try {
-      localStorage.setItem(STORAGE_KEY, lang);
-    } catch (e) {
-      /* storage unavailable (private mode or blocked): ignore */
-    }
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* storage unavailable */ }
   }
 
   let currentLang = dict[readStoredLang()] ? readStoredLang() : DEFAULT_LANG;
 
+  /* ---------- Language ---------- */
   function applyLang(lang) {
     if (!dict[lang]) return;
     currentLang = lang;
@@ -182,11 +198,69 @@
     });
   }
 
+  /* ---------- Menu (titik tiga) ---------- */
+  const menuBtn = document.getElementById("menu-btn");
+  const menuPanel = document.getElementById("menu-panel");
+
+  function setMenu(open) {
+    if (!menuBtn || !menuPanel) return;
+    menuPanel.hidden = !open;
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function initMenu() {
+    if (!menuBtn || !menuPanel) return;
+
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setMenu(menuPanel.hidden);
+    });
+
+    // Klik di luar menu: tutup
+    document.addEventListener("click", function (e) {
+      if (!menuPanel.hidden && !e.target.closest(".menu")) setMenu(false);
+    });
+
+    // Klik item menu: tutup
+    menuPanel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) setMenu(false);
+    });
+
+    // Escape: tutup
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setMenu(false);
+    });
+  }
+
+  /* ---------- Routing antar halaman ---------- */
+  function showPage(id) {
+    if (PAGES.indexOf(id) === -1) id = "home";
+
+    PAGES.forEach(function (p) {
+      const el = document.getElementById("page-" + p);
+      if (el) el.classList.toggle("is-active", p === id);
+    });
+
+    document.querySelectorAll("[data-route]").forEach(function (a) {
+      a.classList.toggle("is-current", a.dataset.route === id);
+    });
+
+    setMenu(false);
+    window.scrollTo(0, 0);
+  }
+
+  function initRouter() {
+    window.addEventListener("hashchange", function () {
+      showPage(location.hash.replace("#", ""));
+    });
+    showPage(location.hash.replace("#", "") || "home");
+  }
+
+  /* ---------- Tab install (Desktop / Mobile) ---------- */
   const tabButtons = document.querySelectorAll("[data-tab]");
   const panels = {
     pc: document.getElementById("panel-pc"),
-    mob: document.getElementById("panel-mob"),
-    use: document.getElementById("panel-use")
+    mob: document.getElementById("panel-mob")
   };
 
   function setTab(id) {
@@ -204,11 +278,21 @@
     });
   }
 
-  /* --- Scroll reveal --- */
+  function initTabs() {
+    tabButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setTab(btn.dataset.tab);
+      });
+    });
+    setTab("pc");
+  }
+
+  /* ---------- Scroll reveal ---------- */
   function initReveal() {
     const targets = document.querySelectorAll(
       ".tc-hero-copy > *, .tc-hero-visual > *, " +
-      ".section-inner > *, .feature, .step, .credits-card, " +
+      ".section-inner > :not(.feature-grid):not(.step-list), " +
+      ".feature, .step, .credits-card, .donate-card, " +
       ".download-inner > *, .footer-inner > *, .footer-bottom"
     );
 
@@ -242,19 +326,16 @@
     });
   }
 
+  /* ---------- Init ---------- */
   document.querySelectorAll(".lang-btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
       applyLang(btn.dataset.lang);
     });
   });
 
-  tabButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      setTab(btn.dataset.tab);
-    });
-  });
-
   applyLang(currentLang);
-  setTab("pc");
+  initMenu();
+  initTabs();
+  initRouter();
   initReveal();
 })();
