@@ -84,9 +84,15 @@ img { max-width: 100%; display: block; }
 .nav-cta:hover { background: var(--wash); border-color: var(--indigo-dark); }
 
 .tc-hero {
-  min-height: min(780px, 100dvh);
+  min-height: auto;
   padding: clamp(92px, 10vh, 120px) var(--page-pad) clamp(56px, 8vh, 88px);
-  border-bottom: 1px solid var(--line); display: flex; align-items: center; position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(40px, 6vw, 72px);
+  position: relative;
+  overflow: hidden;
 }
 .tc-hero-inner {
   width: min(var(--max), 100%); margin-inline: auto; display: grid;
@@ -132,34 +138,30 @@ img { max-width: 100%; display: block; }
 
 /* === FISCHER SILHOUETTE === */
 .fischer-panel {
+  width: min(var(--max), 100%);
+  margin-inline: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 8px;
   padding: 0;
-  margin: 0;
-  width: 100%;
   background: transparent;
-  overflow: visible;
 }
 .fischer-sil {
-  width: clamp(300px, 40vw, 480px);
-  max-width: 60%;
+  width: clamp(320px, 42vw, 520px);
   height: auto;
   flex-shrink: 0;
-  background: transparent;
   opacity: 0.55;
   filter: brightness(0);
   mix-blend-mode: multiply;
 }
 .fischer-line {
   margin: 0;
-  font: 700 clamp(1.8rem, 3.6vw, 2.8rem)/1.08 var(--font);
+  font: 700 clamp(2rem, 4vw, 3.2rem)/1.05 var(--font);
   letter-spacing: -0.04em;
   color: var(--indigo);
   max-width: 9ch;
-  white-space: normal;
 }
 /* === END FISCHER === */
 
@@ -261,20 +263,20 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 900px) {
   .tc-hero-inner { grid-template-columns: 1fr; gap: 42px; }
-  .tc-hero { min-height: auto; padding: 92px 20px 64px; }
+  .tc-hero { padding: 92px 20px 64px; }
   .tc-hero h1 { max-width: 10ch; font-size: clamp(2.8rem, 12vw, 4rem); }
   .tc-actions { display: grid; grid-template-columns: 1fr 1fr; }
   .tc-button { width: 100%; }
   .feature-grid { grid-template-columns: 1fr; }
   .feature:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
   .footer-inner { grid-template-columns: 1fr; }
-  .fischer-sil { width: clamp(240px, 62vw, 340px); max-width: 65%; }
-  .fischer-line { font-size: clamp(1.5rem, 6vw, 2rem); }
+  .fischer-sil { width: clamp(220px, 68vw, 340px); }
+  .fischer-line { font-size: clamp(1.6rem, 7vw, 2.2rem); }
 }
 @media (max-width: 480px) {
   .tabs { width: 100%; }
   .tabs button { flex: 1; }
   .tc-actions { grid-template-columns: 1fr; }
   .step { grid-template-columns: 40px 1fr; }
-  .fischer-sil { width: clamp(220px, 66vw, 280px); }
+  .fischer-sil { width: clamp(200px, 70vw, 260px); }
 }
