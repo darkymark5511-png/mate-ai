@@ -69,12 +69,11 @@ img { max-width: 100%; display: block; }
 }
 .nav-inner {
   width: min(100%, var(--max)); margin-inline: auto; padding-inline: var(--page-pad);
-  height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
 .site-wordmark {
   display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
-  color: var(--ink); text-decoration: none; font: 650 18px/1 var(--font);
-  letter-spacing: -.035em; white-space: nowrap;
+  color: var(--ink); text-decoration: none; white-space: nowrap; min-width: 0;
 }
 .site-logo {
   width: 40px;
@@ -83,7 +82,11 @@ img { max-width: 100%; display: block; }
   border-radius: 10px;
   flex-shrink: 0;
 }
-.nav-right { display: flex; align-items: center; gap: 12px; }
+.site-name {
+  font: 650 18px/1 var(--font);
+  letter-spacing: -.035em;
+}
+.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 
 .lang {
   display: inline-flex; align-items: center; gap: 2px; border: 1px solid var(--line);
@@ -175,18 +178,6 @@ img { max-width: 100%; display: block; }
 .tc-button-secondary:hover { background: var(--wash); border-color: var(--indigo-dark); }
 
 .tc-hero-visual { position: relative; display: flex; flex-direction: column; gap: 0; align-content: center; }
-
-/* Logo squircle di atas kartu papan */
-.logo-squircle {
-  width: clamp(88px, 14vw, 120px);
-  aspect-ratio: 1 / 1;
-  margin: 0 0 20px;
-  border-radius: 30%;
-  overflow: hidden;
-  background: var(--wash);
-  box-shadow: 0 0 0 1px var(--line);
-}
-.logo-squircle img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .product-shot {
   margin: 0; border: 1px solid var(--line); border-radius: var(--radius) var(--radius) 0 0;
@@ -365,16 +356,17 @@ img { max-width: 100%; display: block; }
   .fischer-line { font-size: clamp(1.5rem, 6vw, 2rem); padding: 20px 20px 20px 4px; }
 }
 @media (max-width: 480px) {
-  .nav-right { gap: 8px; }
-  .nav-cta { min-height: 38px; padding: 0 10px; font-size: 0.8rem; }
-  .site-logo { width: 34px; height: 34px; }
-  .lang-btn { min-width: 40px; padding: 0 8px; font-size: 11px; }
+  .nav-inner { gap: 8px; }
+  .nav-right { gap: 6px; }
+  .site-wordmark { gap: 8px; }
+  .site-logo { width: 36px; height: 36px; }
+  .site-name { font-size: 16px; }
+  .lang-btn { min-width: 36px; padding: 0 6px; font-size: 10px; }
+  .nav-cta { min-height: 36px; padding: 0 8px; font-size: 0.75rem; }
+  .menu-btn { width: 40px; height: 40px; }
   .tabs { width: 100%; }
   .tabs button { flex: 1; }
   .tc-actions { grid-template-columns: 1fr; }
   .step { grid-template-columns: 44px 1fr; gap: 12px; }
   .fischer-img { width: clamp(110px, 40%, 150px); }
-}
-@media (max-width: 400px) {
-  .site-name { display: none; }
 }
