@@ -126,6 +126,25 @@ img { max-width: 100%; display: block; }
 .tc-button-secondary:hover { background: var(--wash); border-color: var(--indigo-dark); }
 
 .tc-hero-visual { position: relative; display: flex; flex-direction: column; gap: 0; align-content: center; }
+
+/* === LOGO SQUIRCLE === */
+.logo-squircle {
+  width: clamp(88px, 14vw, 120px);
+  aspect-ratio: 1 / 1;
+  margin: 0 0 20px;
+  border-radius: 30%;
+  overflow: hidden;
+  background: var(--wash);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.logo-squircle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* === END LOGO SQUIRCLE === */
+
 .product-shot {
   margin: 0; border: 1px solid var(--line); border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden; background: var(--wash);
