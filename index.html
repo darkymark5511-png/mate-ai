@@ -16,7 +16,7 @@
     <div class="nav-inner">
       <a href="#home" class="site-wordmark" aria-label="Mate.ai home">
         <img class="site-logo" src="assets/logo.jpg" alt="" width="40" height="40" />
-        Mate.ai
+        <span class="site-name">Mate.ai</span>
       </a>
       <div class="nav-right">
         <div class="lang" role="group" aria-label="Language">
@@ -85,7 +85,7 @@
               </picture>
               <figcaption data-i18n="shotCap">Live board. Candidate lines stay on the squares.</figcaption>
             </figure>
-            <div class="fischer-card" aria-hidden="true">
+            <div class="fischer-card">
               <img class="fischer-img" src="assets/fischer.png" alt="" />
               <p class="fischer-line" data-i18n="fischerLine">Be the best one.</p>
             </div>
@@ -97,14 +97,14 @@
         <div class="section-inner">
           <p class="section-kicker" data-i18n="featKicker">On the board</p>
           <h2 data-i18n="featTitle">Analysis that stays where you look.</h2>
-          <p class="section-lead" data-i18n="featLead">Candidate moves, eval, and human-shaped delay live on Chess.com. No separate analysis window.</p>
+          <p class="section-lead" data-i18n="featLead">Candidate moves and evaluation appear right on the board. No separate analysis window.</p>
           <div class="feature-grid">
-            <article class="feature"><span class="feature-num">01</span><h3 data-i18n="f1t">Stockfish 18</h3><p data-i18n="f1d">Full WASM engine in a worker. MultiPV lines, skill levels, combat depth table.</p></article>
-            <article class="feature"><span class="feature-num">02</span><h3 data-i18n="f2t">Humanizer</h3><p data-i18n="f2d">Time-control mistake matrices and delay curves so the line does not look perfect every move.</p></article>
-            <article class="feature"><span class="feature-num">03</span><h3 data-i18n="f3t">Playstyles</h3><p data-i18n="f3d">Magnus, Hikaru, Tal, Petrosian and more. Contempt and skill tuned per style.</p></article>
-            <article class="feature"><span class="feature-num">04</span><h3 data-i18n="f4t">Combat mode</h3><p data-i18n="f4d">Deeper search when you need it. Queue pre-analysis on the opponent's clock.</p></article>
-            <article class="feature"><span class="feature-num">05</span><h3 data-i18n="f5t">Puzzle farm</h3><p data-i18n="f5d">Auto-solve Chess.com puzzles with human delay. Toggle from the widget.</p></article>
-            <article class="feature"><span class="feature-num">06</span><h3 data-i18n="f6t">Castling rights</h3><p data-i18n="f6d">Tracks king and rook motion so FEN castling flags stay honest after pieces return.</p></article>
+            <article class="feature"><span class="feature-num">01</span><h3 data-i18n="f1t">Stockfish 18</h3><p data-i18n="f1d">Full WASM engine running in a web worker, so the page stays responsive.</p></article>
+            <article class="feature"><span class="feature-num">02</span><h3 data-i18n="f2t">Multi-line analysis</h3><p data-i18n="f2d">See several candidate moves at once, drawn as arrows on the board.</p></article>
+            <article class="feature"><span class="feature-num">03</span><h3 data-i18n="f3t">Evaluation</h3><p data-i18n="f3d">Each candidate shows its evaluation so you can compare lines at a glance.</p></article>
+            <article class="feature"><span class="feature-num">04</span><h3 data-i18n="f4t">Adjustable depth</h3><p data-i18n="f4d">Choose how deep the engine searches, trading speed for accuracy.</p></article>
+            <article class="feature"><span class="feature-num">05</span><h3 data-i18n="f5t">For study and review</h3><p data-i18n="f5d">Built for analyzing positions and reviewing finished games. Not for use during rated games.</p></article>
+            <article class="feature"><span class="feature-num">06</span><h3 data-i18n="f6t">Accurate positions</h3><p data-i18n="f6d">Castling rights are tracked correctly, so analyzed positions stay accurate.</p></article>
           </div>
         </div>
       </section>
@@ -130,8 +130,8 @@
         <h2 data-i18n="installTitle">Load unpacked. Start a game.</h2>
         <p class="section-lead" data-i18n="installLead">Two paths. Desktop first, mobile if you are on Android with Lemur.</p>
         <div class="tabs" role="tablist" aria-label="Install platform">
-          <button type="button" role="tab" id="tab-pc" data-tab="pc" aria-selected="true" aria-controls="panel-pc" data-i18n="tabPc">Desktop</button>
-          <button type="button" role="tab" id="tab-mob" data-tab="mob" aria-selected="false" aria-controls="panel-mob" data-i18n="tabMob">Mobile</button>
+          <button type="button" role="tab" id="tab-pc" data-tab="pc" aria-selected="true" aria-controls="panel-pc" tabindex="0" data-i18n="tabPc">Desktop</button>
+          <button type="button" role="tab" id="tab-mob" data-tab="mob" aria-selected="false" aria-controls="panel-mob" tabindex="-1" data-i18n="tabMob">Mobile</button>
         </div>
         <div id="panel-pc" class="panel is-on" role="tabpanel" aria-labelledby="tab-pc">
           <div class="step-list">
@@ -146,7 +146,7 @@
             <div class="step"><div class="step-num">01</div><div><h3 data-i18n="mob1t">Install Lemur Browser</h3><p data-i18n="mob1d">From the Play Store. Lemur can load Chrome-style extensions on Android.</p></div></div>
             <div class="step"><div class="step-num">02</div><div><h3 data-i18n="mob2t">Download and unzip</h3><p data-i18n="mob2d">Save the ZIP on the phone and extract it with Files or any zip tool.</p></div></div>
             <div class="step"><div class="step-num">03</div><div><h3 data-i18n="mob3t">Load unpacked</h3><p data-i18n-html="mob3d">In Lemur open Extensions (menu, or try <code>chrome://extensions</code>). Enable Developer mode, Load unpacked, point at the folder.</p></div></div>
-            <div class="step"><div class="step-num">04</div><div><h3 data-i18n="mob4t">Play on Chess.com</h3><p data-i18n="mob4d">Use Chess.com inside Lemur. iOS Safari cannot load this extension type.</p><p class="note" data-i18n="mobNote">Android only for mobile. Desktop path above is the reliable route.</p></div></div>
+            <div class="step"><div class="step-num">04</div><div><h3 data-i18n="mob4t">Use it on Chess.com</h3><p data-i18n="mob4d">Open Chess.com inside Lemur. iOS Safari cannot load this extension type.</p><p class="note" data-i18n="mobNote">Android only for mobile. Desktop path above is the reliable route.</p></div></div>
           </div>
         </div>
       </div>
@@ -159,9 +159,9 @@
         <h2 data-i18n="tutTitle">How to use it.</h2>
         <p class="section-lead" data-i18n="tutLead">Three steps from first open to first analysis.</p>
         <div class="step-list">
-          <div class="step"><div class="step-num">01</div><div><h3 data-i18n="use1t">Pick Elo or playstyle</h3><p data-i18n="use1d">Open the widget. Choose a level or a named style (Tal, Petrosian, etc.).</p></div></div>
-          <div class="step"><div class="step-num">02</div><div><h3 data-i18n="use2t">Read the arrows</h3><p data-i18n="use2d">MultiPV candidates with softmax percentages. Combat mode digs deeper.</p></div></div>
-          <div class="step"><div class="step-num">03</div><div><h3 data-i18n="use3t">Humanizer on</h3><p data-i18n="use3d">Mistake rate and delay scale with time control so the session looks less engine-perfect.</p></div></div>
+          <div class="step"><div class="step-num">01</div><div><h3 data-i18n="use1t">Open a position</h3><p data-i18n="use1d">Start the analysis on a position you want to study. Choose the depth you need.</p></div></div>
+          <div class="step"><div class="step-num">02</div><div><h3 data-i18n="use2t">Read the arrows</h3><p data-i18n="use2d">Each arrow is a candidate move with its evaluation. Compare them to understand the position.</p></div></div>
+          <div class="step"><div class="step-num">03</div><div><h3 data-i18n="use3t">Review after the game</h3><p data-i18n="use3d">Use Mate.ai to study positions after a game ends. Keep it out of rated games, which must be played fairly.</p></div></div>
         </div>
       </div>
     </section>
@@ -190,7 +190,7 @@
         <div class="credits-card">
           <p data-i18n-html="crBuilt">Built by <strong>BagasValzz</strong>.</p>
           <p data-i18n="crEngine">Engine: Stockfish 18 (WASM). UI: liquid glass overlay on Chess.com.</p>
-          <p data-i18n="crOpen">100% open source. Copy it, change it, sell it, claim it. Free alternative to paid overlays.</p>
+          <p data-i18n="crOpen">100% open source. Read it, change it, and build on it.</p>
           <p data-i18n="crContact">Need me: Discord.</p>
         </div>
       </div>
