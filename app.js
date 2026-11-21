@@ -1,4 +1,6 @@
 (function () {
+  "use strict";
+
   const dict = {
     en: {
       navGuide: "Guide",
@@ -63,7 +65,6 @@
       crEngine: "Engine: Stockfish 18 (WASM). UI: liquid glass overlay on Chess.com.",
       crOpen: "100% open source. Copy it, change it, sell it, claim it. Free alternative to paid overlays.",
       crContact: "Need me: Discord.",
-      crFischer: "Silhouette: Bobby Fischer. Still the sharpest mind to sit at a board.",
       footerDesc: "Free Stockfish 18 overlay for Chess.com. Early access.",
       footerEngine: "Stockfish 18 WASM",
       footerCopy: "Mate.ai \u00b7 Early Access \u00b7 Free"
@@ -131,71 +132,90 @@
       crEngine: "Engine: Stockfish 18 (WASM). UI: overlay liquid glass di Chess.com.",
       crOpen: "100% open source. Silakan salin, ubah, jual, atau klaim. Alternatif gratis untuk overlay berbayar.",
       crContact: "Butuh kontak: Discord.",
-      crFischer: "Siluet: Bobby Fischer. Masih otak paling tajam yang pernah duduk di papan.",
       footerDesc: "Overlay Stockfish 18 gratis untuk Chess.com. Akses awal.",
       footerEngine: "Stockfish 18 WASM",
       footerCopy: "Mate.ai \u00b7 Akses Awal \u00b7 Gratis"
     }
   };
 
-  let lang = localStorage.getItem("mate-lang") || "en";
-  if (!dict[lang]) lang = "en";
+  const STORAGE_KEY = "mate-lang";
+  const DEFAULT_LANG = "en";
 
-  function applyLang(next) {
-    lang = next;
-    localStorage.setItem("mate-lang", lang);
+  function readStoredLang() {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function saveLang(lang) {
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {
+      /* storage unavailable (private mode or blocked): ignore */
+    }
+  }
+
+  let currentLang = dict[readStoredLang()] ? readStoredLang() : DEFAULT_LANG;
+
+  function applyLang(lang) {
+    if (!dict[lang]) return;
+    currentLang = lang;
+    saveLang(lang);
     document.documentElement.lang = lang;
+
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      var key = el.getAttribute("data-i18n");
-      var val = dict[lang][key];
+      const val = dict[lang][el.dataset.i18n];
       if (val != null) el.textContent = val;
     });
+
     document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
-      var key = el.getAttribute("data-i18n-html");
-      var val = dict[lang][key];
+      const val = dict[lang][el.dataset.i18nHtml];
       if (val != null) el.innerHTML = val;
     });
+
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
-      var on = btn.getAttribute("data-lang") === lang;
+      const on = btn.dataset.lang === lang;
       btn.classList.toggle("is-on", on);
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
   }
 
-  document.querySelectorAll(".lang-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      applyLang(btn.getAttribute("data-lang"));
-    });
-  });
-
-  var tabs = document.querySelectorAll("[data-tab]");
-  var panels = {
+  const tabButtons = document.querySelectorAll("[data-tab]");
+  const panels = {
     pc: document.getElementById("panel-pc"),
     mob: document.getElementById("panel-mob"),
     use: document.getElementById("panel-use")
   };
 
   function setTab(id) {
-    tabs.forEach(function (t) {
-      var on = t.getAttribute("data-tab") === id;
-      t.setAttribute("aria-selected", on ? "true" : "false");
+    tabButtons.forEach(function (btn) {
+      btn.setAttribute("aria-selected", btn.dataset.tab === id ? "true" : "false");
     });
+
     Object.keys(panels).forEach(function (key) {
-      var panel = panels[key];
+      const panel = panels[key];
       if (!panel) return;
-      var on = key === id;
+      const on = key === id;
       panel.classList.toggle("is-on", on);
       if (on) panel.removeAttribute("hidden");
       else panel.setAttribute("hidden", "");
     });
   }
 
-  tabs.forEach(function (t) {
-    t.addEventListener("click", function () {
-      setTab(t.getAttribute("data-tab"));
+  document.querySelectorAll(".lang-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      applyLang(btn.dataset.lang);
     });
   });
 
-  applyLang(lang);
+  tabButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      setTab(btn.dataset.tab);
+    });
+  });
+
+  applyLang(currentLang);
   setTab("pc");
 })();
