@@ -142,14 +142,14 @@ img { max-width: 100%; display: block; }
   margin-inline: auto;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 0;
   padding: 0;
   background: transparent;
 }
 .fischer-sil {
-  width: clamp(320px, 42vw, 520px);
+  width: clamp(360px, 46vw, 600px);
   height: auto;
   flex-shrink: 0;
   opacity: 0.55;
@@ -157,8 +157,9 @@ img { max-width: 100%; display: block; }
   mix-blend-mode: multiply;
 }
 .fischer-line {
-  margin: 0;
-  font: 700 clamp(2rem, 4vw, 3.2rem)/1.05 var(--font);
+  margin: 0 0 14%;
+  margin-left: -28px;
+  font: 700 clamp(2.2rem, 4.2vw, 3.4rem)/1.05 var(--font);
   letter-spacing: -0.04em;
   color: var(--indigo);
   max-width: 9ch;
@@ -230,9 +231,6 @@ img { max-width: 100%; display: block; }
 .credits-card p { margin: 0 0 14px; color: var(--muted); max-width: 60ch; }
 .credits-card p:last-child { margin-bottom: 0; }
 .credits-card strong { color: var(--ink); }
-.credits-fischer {
-  margin-top: 20px !important; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.92rem;
-}
 
 .download-band {
   background: var(--wash); border-bottom: 1px solid var(--line); padding: var(--section-y) var(--page-pad);
@@ -270,13 +268,14 @@ img { max-width: 100%; display: block; }
   .feature-grid { grid-template-columns: 1fr; }
   .feature:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
   .footer-inner { grid-template-columns: 1fr; }
-  .fischer-sil { width: clamp(220px, 68vw, 340px); }
-  .fischer-line { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .fischer-sil { width: clamp(280px, 80vw, 440px); }
+  .fischer-line { margin-left: -16px; font-size: clamp(1.8rem, 8vw, 2.4rem); }
 }
 @media (max-width: 480px) {
   .tabs { width: 100%; }
   .tabs button { flex: 1; }
   .tc-actions { grid-template-columns: 1fr; }
   .step { grid-template-columns: 40px 1fr; }
-  .fischer-sil { width: clamp(200px, 70vw, 260px); }
+  .fischer-sil { width: clamp(240px, 84vw, 320px); }
+  .fischer-line { margin-left: -12px; }
 }
