@@ -1,52 +1,138 @@
 (function () {
   const dict = {
     en: {
-      badge: "Early Access",
-      kicker: "Stockfish 18 · Chess.com overlay",
-      title: "Free engine. No $80 paywall.",
+      navGuide: "Guide",
+      navCredits: "Credits",
+      navDownload: "Download",
+      kicker: "Stockfish 18 \u00b7 Chess.com overlay",
+      title: "Free engine.<br>No <em>$80</em> paywall.",
       lead: "Mate.ai is an early-access Chrome extension that runs Stockfish 18 in your browser on Chess.com. Built to replace paid overlays.",
-      tabDownload: "Download",
-      tabCredits: "Credits",
       downloadBtn: "Download ZIP",
-      downloadHint: "Direct link. Unzip, then load as unpacked extension.",
-      tutTitle: "Install",
-      pcTitle: "Desktop (Chrome / Edge / Brave)",
-      pcSteps: "<li>Download and unzip the file.</li><li>Open <code>chrome://extensions</code> (or <code>edge://extensions</code>).</li><li>Turn on <strong>Developer mode</strong> (top right).</li><li>Click <strong>Load unpacked</strong> and select the unzipped folder (the one with <code>manifest.json</code>).</li><li>Open Chess.com. The overlay should appear on the board.</li>",
-      mobTitle: "Mobile (Android)",
-      mobSteps: "<li>Install <strong>Lemur Browser</strong> from the Play Store (supports Chrome extensions).</li><li>Download the ZIP on your phone and unzip it (Files app or a zip tool).</li><li>In Lemur, open the extensions page (menu → Extensions, or try <code>chrome://extensions</code>).</li><li>Enable Developer mode, then <strong>Load unpacked</strong> and point at the unzipped folder.</li><li>Go to Chess.com in that browser and start a game.</li>",
-      mobNote: "iOS Safari does not support this kind of extension. Use Android + Lemur (or another Chromium browser that allows unpacked extensions).",
-      useTitle: "Using it",
-      useSteps: "<li>Open a live game or puzzle on Chess.com.</li><li>Pick an Elo level or playstyle in the widget.</li><li>Arrows show candidate moves. Combat mode digs deeper.</li><li>Humanizer softens accuracy so the line looks less perfect.</li>",
+      guideBtn: "Install guide",
+      featKicker: "On the board",
+      featTitle: "Analysis that stays where you look.",
+      featLead: "Candidate moves, eval, and human-shaped delay live on Chess.com. No separate analysis window.",
+      f1t: "Stockfish 18",
+      f1d: "Full WASM engine in a worker. MultiPV lines, skill levels, combat depth table.",
+      f2t: "Humanizer",
+      f2d: "Time-control mistake matrices and delay curves so the line does not look perfect every move.",
+      f3t: "Playstyles",
+      f3d: "Magnus, Hikaru, Tal, Petrosian and more. Contempt and skill tuned per style.",
+      f4t: "Combat mode",
+      f4d: "Deeper search when you need it. Queue pre-analysis on the opponent's clock.",
+      f5t: "Puzzle farm",
+      f5d: "Auto-solve Chess.com puzzles with human delay. Toggle from the widget.",
+      f6t: "Castling rights",
+      f6d: "Tracks king and rook motion so FEN castling flags stay honest after pieces return.",
+      installKicker: "Install",
+      installTitle: "Load unpacked. Start a game.",
+      installLead: "Two paths. Desktop first, mobile if you are on Android with Lemur.",
+      tabPc: "Desktop",
+      tabMob: "Mobile",
+      tabUse: "Using it",
+      pc1t: "Download the ZIP",
+      pc1d: "Use the button above or in the nav. Unzip so you can see manifest.json.",
+      pc2t: "Open extensions",
+      pc2d: "Go to <code>chrome://extensions</code> (Chrome / Brave) or <code>edge://extensions</code> (Edge).",
+      pc3t: "Developer mode",
+      pc3d: "Toggle Developer mode on (top right). Click Load unpacked and select the unzipped folder.",
+      pc4t: "Open Chess.com",
+      pc4d: "Start a game or puzzle. The Mate.ai widget sits on the board.",
+      mob1t: "Install Lemur Browser",
+      mob1d: "From the Play Store. Lemur can load Chrome-style extensions on Android.",
+      mob2t: "Download and unzip",
+      mob2d: "Save the ZIP on the phone and extract it with Files or any zip tool.",
+      mob3t: "Load unpacked",
+      mob3d: "In Lemur open Extensions (menu, or try <code>chrome://extensions</code>). Enable Developer mode, Load unpacked, point at the folder.",
+      mob4t: "Play on Chess.com",
+      mob4d: "Use Chess.com inside Lemur. iOS Safari cannot load this extension type.",
+      mobNote: "Android only for mobile. Desktop path above is the reliable route.",
+      use1t: "Pick Elo or playstyle",
+      use1d: "Open the widget. Choose a level or a named style (Tal, Petrosian, etc.).",
+      use2t: "Read the arrows",
+      use2d: "MultiPV candidates with softmax percentages. Combat mode digs deeper.",
+      use3t: "Humanizer on",
+      use3d: "Mistake rate and delay scale with time control so the session looks less engine-perfect.",
+      bandTitle: "Ready when you are.",
+      bandLead: "Early access ZIP. Unzip, load unpacked, play. Free.",
+      crKicker: "Credits",
+      crTitle: "Who built this.",
       crBuilt: "Built by <strong>BagasValzz</strong>.",
-      crEngine: "Engine: Stockfish 18 (WASM). UI: Liquid Glass.",
-      crOpen: "100% open source. Copy it, change it, sell it. I made this to kill the $80 engine tax.",
+      crEngine: "Engine: Stockfish 18 (WASM). UI: liquid glass overlay on Chess.com.",
+      crOpen: "100% open source. Copy it, change it, sell it, claim it. Made to kill the $80 engine tax.",
       crSpite: "Fuck Titan Chess and their paywall.",
       crContact: "Need me: Discord.",
-      footer: "Mate.ai · Early Access · Stockfish 18"
+      crFischer: "Silhouette: Bobby Fischer. Still the sharpest mind to sit at a board.",
+      footerDesc: "Free Stockfish 18 overlay for Chess.com. Early access.",
+      footerEngine: "Stockfish 18 WASM",
+      footerCopy: "Mate.ai \u00b7 Early Access \u00b7 Free"
     },
     id: {
-      badge: "Akses Awal",
-      kicker: "Stockfish 18 · Overlay Chess.com",
-      title: "Engine gratis. Tanpa bayar $80.",
-      lead: "Mate.ai adalah ekstensi Chrome akses awal yang menjalankan Stockfish 18 di browser untuk Chess.com. Dibuat sebagai alternatif gratis dari overlay berbayar.",
-      tabDownload: "Unduh",
-      tabCredits: "Kredit",
+      navGuide: "Panduan",
+      navCredits: "Kredit",
+      navDownload: "Unduh",
+      kicker: "Stockfish 18 \u00b7 Overlay Chess.com",
+      title: "Engine gratis.<br>Tanpa paywall <em>$80</em>.",
+      lead: "Mate.ai adalah ekstensi Chrome akses awal yang menjalankan Stockfish 18 di browser untuk Chess.com. Dibuat menggantikan overlay berbayar.",
       downloadBtn: "Unduh ZIP",
-      downloadHint: "Link langsung. Ekstrak, lalu muat sebagai ekstensi unpacked.",
-      tutTitle: "Cara pasang",
-      pcTitle: "Desktop (Chrome / Edge / Brave)",
-      pcSteps: "<li>Unduh dan ekstrak file ZIP.</li><li>Buka <code>chrome://extensions</code> (atau <code>edge://extensions</code>).</li><li>Aktifkan <strong>Developer mode</strong> (pojok kanan atas).</li><li>Klik <strong>Load unpacked</strong> dan pilih folder hasil ekstrak (yang berisi <code>manifest.json</code>).</li><li>Buka Chess.com. Overlay muncul di papan.</li>",
-      mobTitle: "Mobile (Android)",
-      mobSteps: "<li>Pasang <strong>Lemur Browser</strong> dari Play Store (mendukung ekstensi Chrome).</li><li>Unduh ZIP di HP lalu ekstrak (aplikasi File atau tools zip).</li><li>Di Lemur, buka halaman ekstensi (menu → Extensions, atau coba <code>chrome://extensions</code>).</li><li>Aktifkan Developer mode, lalu <strong>Load unpacked</strong> dan arahkan ke folder hasil ekstrak.</li><li>Buka Chess.com di browser itu dan mulai permainan.</li>",
-      mobNote: "iOS Safari tidak mendukung ekstensi jenis ini. Pakai Android + Lemur (atau browser Chromium lain yang mengizinkan unpacked extension).",
-      useTitle: "Cara pakai",
-      useSteps: "<li>Buka game live atau puzzle di Chess.com.</li><li>Pilih level Elo atau playstyle di widget.</li><li>Panah menampilkan kandidat langkah. Mode combat menganalisis lebih dalam.</li><li>Humanizer meredam akurasi supaya garis tidak terlihat sempurna.</li>",
+      guideBtn: "Panduan pasang",
+      featKicker: "Di papan",
+      featTitle: "Analisis tetap di tempat kamu melihat.",
+      featLead: "Kandidat langkah, evaluasi, dan delay yang terasa manusiawi langsung di Chess.com. Tanpa jendela analisis terpisah.",
+      f1t: "Stockfish 18",
+      f1d: "Engine WASM penuh di worker. MultiPV, skill level, tabel depth combat.",
+      f2t: "Humanizer",
+      f2d: "Matriks kesalahan per time control dan kurva delay supaya garis tidak terlihat sempurna setiap langkah.",
+      f3t: "Playstyles",
+      f3d: "Magnus, Hikaru, Tal, Petrosian, dan lainnya. Contempt dan skill disetel per gaya.",
+      f4t: "Mode combat",
+      f4d: "Pencarian lebih dalam saat dibutuhkan. Antrian pre-analisis di jam lawan.",
+      f5t: "Puzzle farm",
+      f5d: "Auto-solve puzzle Chess.com dengan delay manusiawi. Toggle dari widget.",
+      f6t: "Hak castling",
+      f6d: "Melacak gerak raja dan benteng supaya flag castling di FEN tetap jujur.",
+      installKicker: "Pasang",
+      installTitle: "Load unpacked. Mulai main.",
+      installLead: "Dua jalur. Desktop dulu, mobile jika Android + Lemur.",
+      tabPc: "Desktop",
+      tabMob: "Mobile",
+      tabUse: "Cara pakai",
+      pc1t: "Unduh ZIP",
+      pc1d: "Pakai tombol di atas atau di nav. Ekstrak sampai terlihat manifest.json.",
+      pc2t: "Buka extensions",
+      pc2d: "Buka <code>chrome://extensions</code> (Chrome / Brave) atau <code>edge://extensions</code> (Edge).",
+      pc3t: "Developer mode",
+      pc3d: "Aktifkan Developer mode (kanan atas). Klik Load unpacked dan pilih folder hasil ekstrak.",
+      pc4t: "Buka Chess.com",
+      pc4d: "Mulai game atau puzzle. Widget Mate.ai muncul di papan.",
+      mob1t: "Pasang Lemur Browser",
+      mob1d: "Dari Play Store. Lemur bisa memuat ekstensi gaya Chrome di Android.",
+      mob2t: "Unduh dan ekstrak",
+      mob2d: "Simpan ZIP di HP lalu ekstrak dengan Files atau tools zip.",
+      mob3t: "Load unpacked",
+      mob3d: "Di Lemur buka Extensions (menu, atau coba <code>chrome://extensions</code>). Aktifkan Developer mode, Load unpacked, arahkan ke folder.",
+      mob4t: "Main di Chess.com",
+      mob4d: "Pakai Chess.com di dalam Lemur. iOS Safari tidak mendukung ekstensi jenis ini.",
+      mobNote: "Mobile hanya Android. Jalur desktop di atas yang paling stabil.",
+      use1t: "Pilih Elo atau playstyle",
+      use1d: "Buka widget. Pilih level atau gaya (Tal, Petrosian, dll).",
+      use2t: "Baca panah",
+      use2d: "Kandidat MultiPV dengan persen softmax. Mode combat menganalisis lebih dalam.",
+      use3t: "Humanizer aktif",
+      use3d: "Rate kesalahan dan delay mengikuti time control supaya sesi tidak terlihat mesin-sempurna.",
+      bandTitle: "Siap kapan saja.",
+      bandLead: "ZIP akses awal. Ekstrak, load unpacked, main. Gratis.",
+      crKicker: "Kredit",
+      crTitle: "Siapa yang membuat ini.",
       crBuilt: "Dibuat oleh <strong>BagasValzz</strong>.",
-      crEngine: "Engine: Stockfish 18 (WASM). UI: Liquid Glass.",
-      crOpen: "100% open source. Silakan copy, ubah, jual. Saya buat ini untuk menghabisi pajak engine $80.",
+      crEngine: "Engine: Stockfish 18 (WASM). UI: overlay liquid glass di Chess.com.",
+      crOpen: "100% open source. Silakan copy, ubah, jual, atau klaim. Dibuat untuk menghabisi pajak engine $80.",
       crSpite: "Fuck Titan Chess dan paywall-nya.",
       crContact: "Butuh kontak: Discord.",
-      footer: "Mate.ai · Akses Awal · Stockfish 18"
+      crFischer: "Siluet: Bobby Fischer. Masih otak paling tajam yang pernah duduk di papan.",
+      footerDesc: "Overlay Stockfish 18 gratis untuk Chess.com. Akses awal.",
+      footerEngine: "Stockfish 18 WASM",
+      footerCopy: "Mate.ai \u00b7 Akses Awal \u00b7 Gratis"
     }
   };
 
@@ -58,52 +144,58 @@
     localStorage.setItem("mate-lang", lang);
     document.documentElement.lang = lang;
 
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      const val = dict[lang][key];
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      var val = dict[lang][key];
       if (val != null) el.textContent = val;
     });
-    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
-      const key = el.getAttribute("data-i18n-html");
-      const val = dict[lang][key];
+    document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-html");
+      var val = dict[lang][key];
       if (val != null) el.innerHTML = val;
     });
 
-    document.querySelectorAll(".lang-btn").forEach((btn) => {
-      const on = btn.getAttribute("data-lang") === lang;
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+      var on = btn.getAttribute("data-lang") === lang;
       btn.classList.toggle("is-on", on);
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
   }
 
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
+  document.querySelectorAll(".lang-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      applyLang(btn.getAttribute("data-lang"));
+    });
   });
 
-  const tabs = document.querySelectorAll("[data-tab]");
-  const panels = {
-    dl: document.getElementById("panel-dl"),
-    cr: document.getElementById("panel-cr")
+  var tabs = document.querySelectorAll("[data-tab]");
+  var panels = {
+    pc: document.getElementById("panel-pc"),
+    mob: document.getElementById("panel-mob"),
+    use: document.getElementById("panel-use")
   };
 
   function setTab(id) {
-    tabs.forEach((t) => {
-      const on = t.getAttribute("data-tab") === id;
+    tabs.forEach(function (t) {
+      var on = t.getAttribute("data-tab") === id;
       t.setAttribute("aria-selected", on ? "true" : "false");
     });
-    Object.keys(panels).forEach((key) => {
-      const panel = panels[key];
-      const on = key === id;
+    Object.keys(panels).forEach(function (key) {
+      var panel = panels[key];
+      if (!panel) return;
+      var on = key === id;
       panel.classList.toggle("is-on", on);
       if (on) panel.removeAttribute("hidden");
       else panel.setAttribute("hidden", "");
     });
   }
 
-  tabs.forEach((t) => {
-    t.addEventListener("click", () => setTab(t.getAttribute("data-tab")));
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () {
+      setTab(t.getAttribute("data-tab"));
+    });
   });
 
   applyLang(lang);
-  setTab("dl");
+  setTab("pc");
 })();
