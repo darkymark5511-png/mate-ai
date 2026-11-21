@@ -58,7 +58,13 @@ img { max-width: 100%; display: block; }
   color: var(--ink); text-decoration: none; font: 650 18px/1 var(--font);
   letter-spacing: -.035em; white-space: nowrap;
 }
-.site-wordmark svg { width: 22px; height: 22px; color: var(--indigo); }
+.site-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .nav-link { display: none; color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
 .nav-link:hover { color: var(--ink); }
