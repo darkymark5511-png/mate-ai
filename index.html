@@ -1,214 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mate.ai | Free Stockfish 18 Overlay for Chess.com</title>
-    <meta name="description" content="Free Stockfish 18 analysis overlay. No $80 paywall. Built by BagasValzz.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mate.ai | Free Stockfish 18 Overlay for Chess.com</title>
+  <meta name="description" content="Free Stockfish 18 analysis overlay for Chess.com. Early access. No $80 paywall. Built by BagasValzz." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="brand">
-                <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 22H5v-2h14v2zM13 2l-2 4-2-1-2 4 2 4-1 5h10l-1-5 2-4-2-4-2 1-2-4z" fill="currentColor"/></svg>
-                <span>Mate.ai</span>
-            </a>
-            <div class="nav-right">
-                <div class="lang">
-                    <button type="button" class="lang-btn is-on" data-lang="en">EN</button>
-                    <button type="button" class="lang-btn" data-lang="id">ID</button>
-                </div>
-                <a href="#pricing" class="nav-cta" data-i18n="navDownload">Download</a>
-            </div>
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/" class="site-wordmark" aria-label="Mate.ai home">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 22H5v-2h14v2zM13 2l-2 4-2-1-2 4 2 4-1 5h10l-1-5 2-4-2-4-2 1-2-4z" fill="currentColor"/></svg>
+        Mate.ai
+      </a>
+      <div class="nav-right">
+        <a class="nav-link" href="#install" data-i18n="navGuide">Guide</a>
+        <a class="nav-link" href="#credits" data-i18n="navCredits">Credits</a>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="lang-btn is-on" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="id" aria-pressed="false">ID</button>
         </div>
-    </nav>
+        <a class="nav-cta" href="https://sfl.gl/klGpxfWl" rel="noopener" data-i18n="navDownload">Download</a>
+      </div>
+    </div>
+  </nav>
 
-    <main>
-
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-inner">
-                <div class="hero-copy">
-                    <p class="kicker" data-i18n="kicker">Stockfish 18 · Chess.com overlay</p>
-                    <h1 data-i18n="title">Free engine.<br>No $80 paywall.</h1>
-                    <p class="lead" data-i18n="lead">Mate.ai is an early-access Chrome extension that runs Stockfish 18 in your browser on Chess.com. Built to replace paid overlays.</p>
-                    <div class="hero-actions">
-                        <a href="https://sfl.gl/klGpxfWl" target="_blank" rel="noopener" class="btn-primary" data-i18n="downloadBtn">Download ZIP</a>
-                        <a href="#how" class="btn-secondary" data-i18n="learnMore">How it works</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <!-- Placeholder for screenshot -->
-                    <div class="browser-frame">
-                        <div class="browser-bar">
-                            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                            <span class="url">chess.com/play</span>
-                        </div>
-                        <div class="browser-body">
-                            <img src="assets/screenshot-1.png" alt="Mate.ai overlay" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROOF GALLERY -->
-        <section class="proof">
-            <div class="proof-inner">
-                <h2 data-i18n="proofTitle">The board stays the interface.</h2>
-                <p class="proof-sub" data-i18n="proofSub">Candidate moves. Eval bar. No separate window.</p>
-                <div class="proof-grid">
-                    <figure><img src="assets/screenshot-2.png" alt="Mate.ai on board" loading="lazy"></figure>
-                    <figure><img src="assets/screenshot-3.png" alt="Mate.ai spoofer" loading="lazy"></figure>
-                    <figure><img src="assets/screenshot-4.png" alt="Mate.ai playstyles" loading="lazy"></figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- HOW IT WORKS (TABS) -->
-        <section id="how" class="how">
-            <div class="how-inner">
-                <div class="how-header">
-                    <h2 data-i18n="howTitle">Everything you need. Nothing you don't.</h2>
-                    <p data-i18n="howSub">Pick a feature to see what Mate.ai adds to the position.</p>
-                </div>
-                <div class="how-grid">
-                    <div class="how-tabs" role="tablist">
-                        <button class="how-tab active" data-tab="0" role="tab">
-                            <span class="num">01</span>
-                            <span class="label" data-i18n="feat1">Stockfish 18 Engine</span>
-                        </button>
-                        <button class="how-tab" data-tab="1" role="tab">
-                            <span class="num">02</span>
-                            <span class="label" data-i18n="feat2">Playstyle Selection</span>
-                        </button>
-                        <button class="how-tab" data-tab="2" role="tab">
-                            <span class="num">03</span>
-                            <span class="label" data-i18n="feat3">Spoofer</span>
-                        </button>
-                        <button class="how-tab" data-tab="3" role="tab">
-                            <span class="num">04</span>
-                            <span class="label" data-i18n="feat4">Humanizer</span>
-                        </button>
-                    </div>
-                    <div class="how-panels">
-                        <div class="how-panel active" data-panel="0">
-                            <h3 data-i18n="feat1Title">Stockfish 18 Engine</h3>
-                            <p data-i18n="feat1Desc">Runs entirely in your browser via WASM. No server. No API keys. No subscription.</p>
-                        </div>
-                        <div class="how-panel" data-panel="1">
-                            <h3 data-i18n="feat2Title">Playstyle Selection</h3>
-                            <p data-i18n="feat2Desc">Play like Magnus, Fischer, Tal, or the Witty Alien. 10 different personalities built into the engine.</p>
-                        </div>
-                        <div class="how-panel" data-panel="2">
-                            <h3 data-i18n="feat3Title">Spoofer</h3>
-                            <p data-i18n="feat3Desc">Change your name and rating on the board. Look like a GM before the first move.</p>
-                        </div>
-                        <div class="how-panel" data-panel="3">
-                            <h3 data-i18n="feat4Title">Humanizer</h3>
-                            <p data-i18n="feat4Desc">The engine intentionally blunders based on your Elo and time control, so you don't look like a bot.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRICING / DOWNLOAD -->
-        <section id="pricing" class="pricing">
-            <div class="pricing-inner">
-                <div class="pricing-header">
-                    <h2 data-i18n="pricingTitle">One price. Zero.</h2>
-                    <p data-i18n="pricingSub">Titan charges $79.99. Mate.ai is free.</p>
-                </div>
-                <div class="pricing-grid">
-                    <!-- Free Card -->
-                    <div class="price-card featured">
-                        <div class="price-label" data-i18n="freeLabel">Early Access</div>
-                        <div class="price-value">$0</div>
-                        <div class="price-desc" data-i18n="freeDesc">Everything unlocked.</div>
-                        <ul class="price-features">
-                            <li data-i18n="freeFeat1">Stockfish 18 WASM</li>
-                            <li data-i18n="freeFeat2">10 Playstyles</li>
-                            <li data-i18n="freeFeat3">Humanizer & Pity System</li>
-                            <li data-i18n="freeFeat4">Spoofer & Scout</li>
-                            <li data-i18n="freeFeat5">EN/ID Language</li>
-                        </ul>
-                        <a href="https://sfl.gl/klGpxfWl" target="_blank" rel="noopener" class="price-btn" data-i18n="downloadBtn">Download ZIP</a>
-                    </div>
-                    <!-- Titan Card (for comparison) -->
-                    <div class="price-card">
-                        <div class="price-label" data-i18n="titanLabel">Titan Chess</div>
-                        <div class="price-value">$79.99</div>
-                        <div class="price-desc" data-i18n="titanDesc">Paywall. License checks. Native APK.</div>
-                        <ul class="price-features">
-                            <li class="cross" data-i18n="titanFeat1">Same Stockfish engine</li>
-                            <li class="cross" data-i18n="titanFeat2">Locked behind key</li>
-                            <li class="cross" data-i18n="titanFeat3">80% ban rate</li>
-                            <li class="cross" data-i18n="titanFeat4">No open source</li>
-                            <li class="cross" data-i18n="titanFeat5">Leaked trial keys</li>
-                        </ul>
-                        <div class="price-btn-disabled" data-i18n="titanBtn">Not Recommended</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- INSTALL GUIDE -->
-        <section class="install">
-            <div class="install-inner">
-                <h2 data-i18n="installTitle">Install</h2>
-                <div class="install-grid">
-                    <article class="install-card">
-                        <h3 data-i18n="pcTitle">Desktop (Chrome / Edge / Brave)</h3>
-                        <ol data-i18n-html="pcSteps">
-                            <li>Download and unzip the file.</li>
-                            <li>Open <code>chrome://extensions</code>.</li>
-                            <li>Turn on <strong>Developer mode</strong>.</li>
-                            <li>Click <strong>Load unpacked</strong> and select the unzipped folder.</li>
-                            <li>Open Chess.com. The overlay will appear.</li>
-                        </ol>
-                    </article>
-                    <article class="install-card">
-                        <h3 data-i18n="mobTitle">Mobile (Android)</h3>
-                        <ol data-i18n-html="mobSteps">
-                            <li>Install <strong>Lemur Browser</strong> from the Play Store.</li>
-                            <li>Download the ZIP on your phone and unzip it.</li>
-                            <li>In Lemur, go to <code>chrome://extensions</code>.</li>
-                            <li>Enable Developer mode, then <strong>Load unpacked</strong>.</li>
-                            <li>Go to Chess.com and start a game.</li>
-                        </ol>
-                        <p class="install-note" data-i18n="mobNote">iOS Safari does not support this kind of extension. Use Android + Lemur.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- CREDITS -->
-        <section class="credits">
-            <div class="credits-inner">
-                <h2 data-i18n="creditsTitle">Credits</h2>
-                <p data-i18n="crBuilt">Built by <strong>BagasValzz</strong>.</p>
-                <p data-i18n="crEngine">Engine: Stockfish 18 (WASM). UI: Liquid Glass.</p>
-                <p data-i18n="crOpen">100% open source. Copy it, change it, sell it. I made this to kill the $80 engine tax.</p>
-                <p class="spite" data-i18n="crSpite">Fuck Titan Chess and their paywall.</p>
-                <p data-i18n="crContact">Need me: Discord.</p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <div class="footer-inner">
-            <span data-i18n="footer">Mate.ai · Early Access · Stockfish 18</span>
+  <main>
+    <section class="tc-hero">
+      <div class="tc-hero-inner">
+        <div class="tc-hero-copy">
+          <p class="tc-hero-kicker" data-i18n="kicker">Stockfish 18 · Chess.com overlay</p>
+          <h1 data-i18n-html="title">Free engine.<br>No <em>$80</em> paywall.</h1>
+          <p class="tc-hero-sub" data-i18n="lead">Mate.ai is an early-access Chrome extension that runs Stockfish 18 in your browser on Chess.com. Built to replace paid overlays.</p>
+          <div class="tc-actions">
+            <a class="tc-button tc-button-primary" href="https://sfl.gl/klGpxfWl" rel="noopener" data-i18n="downloadBtn">Download ZIP</a>
+            <a class="tc-button tc-button-secondary" href="#install" data-i18n="guideBtn">Install guide</a>
+          </div>
         </div>
-    </footer>
+        <div class="tc-hero-visual" aria-hidden="true">
+          <div class="fischer-mark">
+            <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M100 8c-18 0-32 14-36 32-2 8-1 16 2 24 4 10 6 18 4 28-1 6-4 12-8 16-6 6-10 14-10 24v18c0 8 2 14 6 20 3 4 4 10 2 16-2 8-8 14-14 20-4 4-6 10-6 16 0 14 10 26 24 30 4 1 8 4 10 8 2 6 0 12-2 18-1 4 0 8 2 12 4 8 14 12 24 10 6-1 12-4 16-8 2-2 4-2 6 0 4 4 10 7 16 8 10 2 20-2 24-10 2-4 3-8 2-12-2-6-4-12-2-18 2-4 6-7 10-8 14-4 24-16 24-30 0-6-2-12-6-16-6-6-12-12-14-20-2-6-1-12 2-16 4-6 6-12 6-20v-18c0-10-4-18-10-24-4-4-7-10-8-16-2-10 0-18 4-28 3-8 4-16 2-24C132 22 118 8 100 8z"/>
+              <ellipse cx="100" cy="48" rx="28" ry="32" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="badge-stack">
+            <div class="badge"><span></span> Stockfish 18 WASM</div>
+            <div class="badge"><span></span> Early Access</div>
+            <div class="badge"><span></span> Free forever</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script src="app.js"></script>
+    <section class="section" id="features">
+      <div class="section-inner">
+        <p class="section-kicker" data-i18n="featKicker">On the board</p>
+        <h2 data-i18n="featTitle">Analysis that stays where you look.</h2>
+        <p class="section-lead" data-i18n="featLead">Candidate moves, eval, and human-shaped delay live on Chess.com. No separate analysis window.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-num">01</span>
+            <h3 data-i18n="f1t">Stockfish 18</h3>
+            <p data-i18n="f1d">Full WASM engine in a worker. MultiPV lines, skill levels, combat depth table.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">02</span>
+            <h3 data-i18n="f2t">Humanizer</h3>
+            <p data-i18n="f2d">Time-control mistake matrices and delay curves so the line does not look perfect every move.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">03</span>
+            <h3 data-i18n="f3t">Playstyles</h3>
+            <p data-i18n="f3d">Magnus, Hikaru, Tal, Petrosian and more. Contempt and skill tuned per style.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">04</span>
+            <h3 data-i18n="f4t">Combat mode</h3>
+            <p data-i18n="f4d">Deeper search when you need it. Queue pre-analysis on the opponent's clock.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">05</span>
+            <h3 data-i18n="f5t">Puzzle farm</h3>
+            <p data-i18n="f5d">Auto-solve Chess.com puzzles with human delay. Toggle from the widget.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">06</span>
+            <h3 data-i18n="f6t">Castling rights</h3>
+            <p data-i18n="f6d">Tracks king and rook motion so FEN castling flags stay honest after pieces return.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="section-inner">
+        <p class="section-kicker" data-i18n="installKicker">Install</p>
+        <h2 data-i18n="installTitle">Load unpacked. Start a game.</h2>
+        <p class="section-lead" data-i18n="installLead">Two paths. Desktop first, mobile if you are on Android with Lemur.</p>
+
+        <div class="tabs" role="tablist" aria-label="Install platform">
+          <button type="button" role="tab" id="tab-pc" data-tab="pc" aria-selected="true" aria-controls="panel-pc" data-i18n="tabPc">Desktop</button>
+          <button type="button" role="tab" id="tab-mob" data-tab="mob" aria-selected="false" aria-controls="panel-mob" data-i18n="tabMob">Mobile</button>
+          <button type="button" role="tab" id="tab-use" data-tab="use" aria-selected="false" aria-controls="panel-use" data-i18n="tabUse">Using it</button>
+        </div>
+
+        <div id="panel-pc" class="panel is-on" role="tabpanel" aria-labelledby="tab-pc">
+          <div class="step-list">
+            <div class="step"><div class="step-num">01</div><div><h3 data-i18n="pc1t">Download the ZIP</h3><p data-i18n="pc1d">Use the button above or in the nav. Unzip so you can see manifest.json.</p></div></div>
+            <div class="step"><div class="step-num">02</div><div><h3 data-i18n="pc2t">Open extensions</h3><p data-i18n-html="pc2d">Go to <code>chrome://extensions</code> (Chrome / Brave) or <code>edge://extensions</code> (Edge).</p></div></div>
+            <div class="step"><div class="step-num">03</div><div><h3 data-i18n="pc3t">Developer mode</h3><p data-i18n="pc3d">Toggle Developer mode on (top right). Click Load unpacked and select the unzipped folder.</p></div></div>
+            <div class="step"><div class="step-num">04</div><div><h3 data-i18n="pc4t">Open Chess.com</h3><p data-i18n="pc4d">Start a game or puzzle. The Mate.ai widget sits on the board.</p></div></div>
+          </div>
+        </div>
+
+        <div id="panel-mob" class="panel" role="tabpanel" aria-labelledby="tab-mob" hidden>
+          <div class="step-list">
+            <div class="step"><div class="step-num">01</div><div><h3 data-i18n="mob1t">Install Lemur Browser</h3><p data-i18n="mob1d">From the Play Store. Lemur can load Chrome-style extensions on Android.</p></div></div>
+            <div class="step"><div class="step-num">02</div><div><h3 data-i18n="mob2t">Download and unzip</h3><p data-i18n="mob2d">Save the ZIP on the phone and extract it with Files or any zip tool.</p></div></div>
+            <div class="step"><div class="step-num">03</div><div><h3 data-i18n="mob3t">Load unpacked</h3><p data-i18n-html="mob3d">In Lemur open Extensions (menu, or try <code>chrome://extensions</code>). Enable Developer mode, Load unpacked, point at the folder.</p></div></div>
+            <div class="step"><div class="step-num">04</div><div><h3 data-i18n="mob4t">Play on Chess.com</h3><p data-i18n="mob4d">Use Chess.com inside Lemur. iOS Safari cannot load this extension type.</p><p class="note" data-i18n="mobNote">Android only for mobile. Desktop path above is the reliable route.</p></div></div>
+          </div>
+        </div>
+
+        <div id="panel-use" class="panel" role="tabpanel" aria-labelledby="tab-use" hidden>
+          <div class="step-list">
+            <div class="step"><div class="step-num">01</div><div><h3 data-i18n="use1t">Pick Elo or playstyle</h3><p data-i18n="use1d">Open the widget. Choose a level or a named style (Tal, Petrosian, etc.).</p></div></div>
+            <div class="step"><div class="step-num">02</div><div><h3 data-i18n="use2t">Read the arrows</h3><p data-i18n="use2d">MultiPV candidates with softmax percentages. Combat mode digs deeper.</p></div></div>
+            <div class="step"><div class="step-num">03</div><div><h3 data-i18n="use3t">Humanizer on</h3><p data-i18n="use3d">Mistake rate and delay scale with time control so the session looks less engine-perfect.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="download-band" id="download">
+      <div class="download-inner">
+        <div>
+          <h2 data-i18n="bandTitle">Ready when you are.</h2>
+          <p data-i18n="bandLead">Early access ZIP. Unzip, load unpacked, play. Free.</p>
+        </div>
+        <a class="tc-button tc-button-primary" href="https://sfl.gl/klGpxfWl" rel="noopener" data-i18n="downloadBtn">Download ZIP</a>
+      </div>
+    </section>
+
+    <section class="section" id="credits">
+      <div class="section-inner">
+        <p class="section-kicker" data-i18n="crKicker">Credits</p>
+        <h2 data-i18n="crTitle">Who built this.</h2>
+        <div class="credits-card">
+          <p data-i18n-html="crBuilt">Built by <strong>BagasValzz</strong>.</p>
+          <p data-i18n="crEngine">Engine: Stockfish 18 (WASM). UI: liquid glass overlay on Chess.com.</p>
+          <p data-i18n="crOpen">100% open source. Copy it, change it, sell it, claim it. Made to kill the $80 engine tax.</p>
+          <p class="spite" data-i18n="crSpite">Fuck Titan Chess and their paywall.</p>
+          <p data-i18n="crContact">Need me: Discord.</p>
+          <p class="credits-fischer" data-i18n="crFischer">Silhouette: Bobby Fischer. Still the sharpest mind to sit at a board.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>Mate.ai</h3>
+        <p data-i18n="footerDesc">Free Stockfish 18 overlay for Chess.com. Early access.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#install" data-i18n="navGuide">Guide</a>
+        <a href="#credits" data-i18n="navCredits">Credits</a>
+        <a href="https://sfl.gl/klGpxfWl" rel="noopener" data-i18n="navDownload">Download</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/darkymark5511-png/mate-ai" rel="noopener">GitHub</a>
+        <span data-i18n="footerEngine">Stockfish 18 WASM</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footerCopy">Mate.ai · Early Access · Free</span>
+      <span>BagasValzz</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
