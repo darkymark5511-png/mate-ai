@@ -1,48 +1,39 @@
-# DESIGN.md — Mate.ai Early Access
+# DESIGN.md — Mate.ai (Titan-matched)
 
 ## Identity
-- Product / project name: Mate.ai
-- One-line what it is: Free Stockfish 18 overlay for Chess.com. Early access.
-- Audience: Chess.com players who want a free alternative to paid engines.
-- Personality keywords: sharp, irreverent, chess-obsessed, anti-paywall, precise
+- Product: Mate.ai
+- One-line: Free Stockfish 18 overlay for Chess.com. Early access.
+- Audience: Chess.com players avoiding paid engine overlays.
+- Personality: sharp, irreverent, precise, anti-paywall
 
 ## Visual language
-- Reference feel: dark chess club, glass over board, Fischer silhouette as icon not decoration
-- Overall mood: bold
+- Match titanchess.online white/indigo editorial: white page, indigo accent, black ink hierarchy, product-capture energy without requiring screenshots we do not have.
+- Bobby Fischer silhouette as quiet figurative mark (credits / hero wash).
 
 ## Palette
-- Core colors:
-  - Primary: #0B0D10 (near-black ground)
-  - Secondary: #161A20 (panel)
-  - Neutral base: #E8EAED (text)
-- Accent: #00E5A8 (mate green, CTAs and active states only)
-- Forbidden / avoid: purple gradients, neon pink, soft pastels, pure white full-bleed
+- page: #ffffff
+- surface: #ffffff
+- wash: #eef0ff
+- wash-strong: #dfe3ff
+- ink: #0a0a0a
+- muted: #0a0a0a (same ink; hierarchy via weight/size)
+- line: #d9ddff
+- indigo: #312e81
+- indigo-dark: #25206f
+- Forbidden: neon cyan, pure black full-bleed hero, purple gradients, glassmorphism
 
 ## Typography
-- Heading: system-ui / Inter, tight tracking, weight 600-700
-- Body: system-ui, 15-16px, readable
-- Mono: ui-monospace for version and step numbers
+- Geist / Inter / system-ui for UI
+- JetBrains Mono for kickers and step numbers
+- Huge hero H1 (clamp 3rem–6rem), tight tracking
 
-## Layout & rhythm
-- Preferred density: comfortable
-- Section rhythm: consistent with breaks (hero, tabs, tutorial blocks)
-- Constraints: max-width 720px content, full-bleed dark ground, mobile-first
+## Layout
+- max content ~1220px, page-pad clamp(20px, 5vw, 72px)
+- section-y clamp(64px, 8vw, 112px)
+- ENERGY 2 / RHYTHM 3 / MOTION 1
 
-## Motion
-- Motion level: subtle
-- Required: tab switch, language switch, hover on download
-- Forbidden: parallax, auto-playing anything, scroll-jack
-
-## Dials
-Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
-
-## Content constraints
-- Real claims only: Stockfish 18 WASM, free, early access, built by BagasValzz
-- Voice: plain, dry, a little spite toward paid engines. EN + ID.
-- Never: fake user counts, "AI-powered" marketing fluff, em dashes in UI copy
-
-## Notes
-- Bobby Fischer silhouette is the only figurative element. Keep it quiet, large, low opacity behind hero or credits.
-- Two tabs only: Download, Credits.
-- Tutorial must cover mobile (Lemur browser → chrome://extensions) and desktop (Chrome/Edge load unpacked).
-- Download URL fixed: https://sfl.gl/klGpxfWl
+## Content
+- Download: https://sfl.gl/klGpxfWl
+- Tabs: Download + Credits (also in-page install guide)
+- EN + ID
+- No fabricated stats
