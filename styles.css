@@ -129,12 +129,33 @@ img { max-width: 100%; display: block; }
   padding: 10px 14px; font-size: 0.82rem; color: var(--muted);
   border-top: 1px solid var(--line); background: var(--page);
 }
-.fischer-panel { display: flex; align-items: flex-end; gap: 14px; padding: 4px 2px 0; }
-.fischer-sil { width: 88px; height: auto; opacity: 0.92; flex-shrink: 0; }
-.fischer-line {
-  margin: 0 0 10px; font: 650 1.05rem/1.2 var(--font); letter-spacing: -0.03em;
-  color: var(--indigo); max-width: 12ch;
+
+/* === FISCHER SILHOUETTE (fixed) === */
+.fischer-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 4px 2px 0;
+  overflow: visible;
+  width: 100%;
 }
+.fischer-sil {
+  width: 200px;
+  max-width: 45%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.92;
+  flex-shrink: 0;
+}
+.fischer-line {
+  margin: 0 0 10px;
+  font: 650 1.05rem/1.2 var(--font);
+  letter-spacing: -0.03em;
+  color: var(--indigo);
+  max-width: 12ch;
+}
+/* === END FISCHER === */
 
 .section { padding: var(--section-y) var(--page-pad); border-bottom: 1px solid var(--line); }
 .section-inner { width: min(var(--max), 100%); margin-inline: auto; }
@@ -241,7 +262,7 @@ img { max-width: 100%; display: block; }
   .feature-grid { grid-template-columns: 1fr; }
   .feature:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
   .footer-inner { grid-template-columns: 1fr; }
-  .fischer-sil { width: 72px; }
+  .fischer-sil { width: 150px; }
   .fischer-line { font-size: 0.95rem; }
 }
 @media (max-width: 480px) {
@@ -249,4 +270,5 @@ img { max-width: 100%; display: block; }
   .tabs button { flex: 1; }
   .tc-actions { grid-template-columns: 1fr; }
   .step { grid-template-columns: 40px 1fr; }
+  .fischer-sil { width: 120px; }
 }
