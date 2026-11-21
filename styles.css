@@ -130,30 +130,30 @@ img { max-width: 100%; display: block; }
   border-top: 1px solid var(--line); background: var(--page);
 }
 
-/* === FISCHER SILHOUETTE (fixed) === */
+/* === FISCHER SILHOUETTE === */
 .fischer-panel {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  gap: 20px;
-  padding: 4px 2px 0;
+  align-items: center;
+  gap: clamp(20px, 4vw, 48px);
+  padding: 8px 2px 0;
   overflow: visible;
   width: 100%;
 }
 .fischer-sil {
-  width: 200px;
-  max-width: 45%;
+  width: clamp(260px, 32vw, 380px);
+  max-width: 55%;
   height: auto;
-  object-fit: contain;
-  opacity: 0.92;
   flex-shrink: 0;
+  filter: brightness(0);
+  mix-blend-mode: multiply;
 }
 .fischer-line {
-  margin: 0 0 10px;
-  font: 650 1.05rem/1.2 var(--font);
-  letter-spacing: -0.03em;
+  margin: 0;
+  font: 700 clamp(1.8rem, 3.6vw, 2.8rem)/1.08 var(--font);
+  letter-spacing: -0.04em;
   color: var(--indigo);
-  max-width: 12ch;
+  max-width: 10ch;
 }
 /* === END FISCHER === */
 
@@ -262,13 +262,13 @@ img { max-width: 100%; display: block; }
   .feature-grid { grid-template-columns: 1fr; }
   .feature:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
   .footer-inner { grid-template-columns: 1fr; }
-  .fischer-sil { width: 150px; }
-  .fischer-line { font-size: 0.95rem; }
+  .fischer-sil { width: clamp(180px, 50vw, 260px); }
+  .fischer-line { font-size: clamp(1.5rem, 6vw, 2rem); }
 }
 @media (max-width: 480px) {
   .tabs { width: 100%; }
   .tabs button { flex: 1; }
   .tc-actions { grid-template-columns: 1fr; }
   .step { grid-template-columns: 40px 1fr; }
-  .fischer-sil { width: 120px; }
+  .fischer-sil { width: 170px; }
 }
