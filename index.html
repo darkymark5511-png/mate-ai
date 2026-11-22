@@ -5,53 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mate.ai | Free Stockfish 18 Overlay for Chess.com</title>
   <meta name="description" content="Free Stockfish 18 analysis overlay for Chess.com. Early access. No $80 paywall. Built by BagasValzz." />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#f7f8ff" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Liquid glass background -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-blob one"></div>
+    <div class="bg-blob two"></div>
+    <div class="bg-blob three"></div>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-noise" aria-hidden="true"></div>
+
   <nav class="nav" aria-label="Primary">
     <div class="nav-inner">
       <a href="#home" class="site-wordmark" aria-label="Mate.ai home">
         <img class="site-logo" src="assets/logo.jpg" alt="" width="40" height="40" />
         <span class="site-name">Mate.ai</span>
       </a>
+
       <div class="nav-right">
         <div class="lang" role="group" aria-label="Language">
           <button type="button" class="lang-btn is-on" data-lang="en" aria-pressed="true">EN</button>
           <button type="button" class="lang-btn" data-lang="id" aria-pressed="false">ID</button>
         </div>
-        <a class="nav-cta" href="https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip" rel="noopener" data-i18n="navDownload">Download</a>
+
+        <a class="nav-cta" href="https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip" rel="noopener" data-i18n="navDownload">
+          Download
+        </a>
+
         <div class="menu">
           <button type="button" class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu-panel">
-            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
           </button>
+
           <div class="menu-panel" id="menu-panel" hidden>
             <a class="menu-item" href="#home" data-route="home">
-              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              </svg>
               <span data-i18n="navHome">Home</span>
             </a>
+
             <a class="menu-item" href="#install" data-route="install">
-              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 22v-5" />
+                <path d="M9 8V2" />
+                <path d="M15 8V2" />
+                <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" />
+              </svg>
               <span data-i18n="navInstall">Install</span>
             </a>
+
             <a class="menu-item" href="#tutorial" data-route="tutorial">
-              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 7v14" />
+                <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+              </svg>
               <span data-i18n="navTutorial">Tutorial</span>
             </a>
+
             <a class="menu-item" href="#donate" data-route="donate">
-              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
               <span data-i18n="navDonate">Donate</span>
             </a>
+
             <a class="menu-item" href="#credits" data-route="credits">
-              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
               <span data-i18n="navCredits">Credits</span>
             </a>
+
             <div class="menu-sep" role="separator"></div>
+
             <a class="menu-item" href="https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip" rel="noopener">
-              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" x2="12" y1="15" y2="3" />
+              </svg>
               <span data-i18n="navDownload">Download</span>
             </a>
           </div>
@@ -63,28 +111,61 @@
   <main>
     <!-- HOME -->
     <div class="page is-active" id="page-home">
-      <section class="tc-hero">
+      <section class="tc-hero" id="home">
         <div class="tc-hero-inner">
           <div class="tc-hero-copy">
-            <p class="tc-hero-kicker" data-i18n="kicker">Stockfish 18 · Chess.com overlay</p>
-            <h1 data-i18n-html="title">Free engine.<br>No <em>$80</em> paywall.</h1>
-            <p class="tc-hero-sub" data-i18n="lead">Mate.ai is an early-access Chrome extension that runs Stockfish 18 in your browser on Chess.com. Built as a free alternative to paid overlays.</p>
+            <p class="tc-hero-kicker" data-i18n="kicker">
+              Stockfish 18 · Chess.com overlay
+            </p>
+
+            <h1 data-i18n-html="title">
+              Free engine.<br />
+              No <em>$80</em> paywall.
+            </h1>
+
+            <p class="tc-hero-sub" data-i18n="lead">
+              Mate.ai is an early-access Chrome extension that runs Stockfish 18 in your browser on Chess.com. Built as a free alternative to paid overlays.
+            </p>
+
             <div class="tc-actions">
-              <a class="tc-button tc-button-primary" href="https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip" rel="noopener" data-i18n="downloadBtn">Download ZIP</a>
-              <a class="tc-button tc-button-secondary" href="#install" data-i18n="guideBtn">Install guide</a>
+              <a class="tc-button tc-button-primary" href="https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip" rel="noopener" data-i18n="downloadBtn">
+                Download ZIP
+              </a>
+
+              <a class="tc-button tc-button-secondary" href="#install" data-i18n="guideBtn">
+                Install guide
+              </a>
             </div>
           </div>
+
           <div class="tc-hero-visual">
             <figure class="product-shot">
               <picture>
                 <source srcset="assets/board-demo.webp" type="image/webp" />
-                <img src="assets/board-demo.webp" width="640" height="637" alt="Mate.ai candidate moves on Chess.com board" decoding="async" fetchpriority="high" />
+                <img
+                  src="assets/board-demo.webp"
+                  width="640"
+                  height="637"
+                  alt="Mate.ai candidate moves on Chess.com board"
+                  decoding="async"
+                  fetchpriority="high"
+                />
               </picture>
-              <figcaption data-i18n="shotCap">Live board. Candidate lines stay on the squares.</figcaption>
+
+              <figcaption data-i18n="shotCap">
+                Live board. Candidate lines stay on the squares.
+              </figcaption>
             </figure>
+
+            <div class="glass-chip chip-one">Stockfish 18</div>
+            <div class="glass-chip chip-two">Depth 18</div>
+            <div class="glass-chip chip-three">+1.42</div>
+
             <div class="fischer-card">
               <img class="fischer-img" src="assets/fischer.png" alt="" />
-              <p class="fischer-line" data-i18n="fischerLine">Be the best one.</p>
+              <p class="fischer-line" data-i18n="fischerLine">
+                Be the best one.
+              </p>
             </div>
           </div>
         </div>
@@ -93,15 +174,63 @@
       <section class="section" id="features">
         <div class="section-inner">
           <p class="section-kicker" data-i18n="featKicker">On the board</p>
-          <h2 data-i18n="featTitle">Analysis that stays where you look.</h2>
-          <p class="section-lead" data-i18n="featLead">Candidate moves and evaluation appear right on the board. No separate analysis window.</p>
+
+          <h2 data-i18n="featTitle">
+            Analysis that stays where you look.
+          </h2>
+
+          <p class="section-lead" data-i18n="featLead">
+            Candidate moves and evaluation appear right on the board. No separate analysis window.
+          </p>
+
           <div class="feature-grid">
-            <article class="feature"><span class="feature-num">01</span><h3 data-i18n="f1t">Stockfish 18</h3><p data-i18n="f1d">Full WASM engine running in a web worker, so the page stays responsive.</p></article>
-            <article class="feature"><span class="feature-num">02</span><h3 data-i18n="f2t">Multi-line analysis</h3><p data-i18n="f2d">See several candidate moves at once, drawn as arrows on the board.</p></article>
-            <article class="feature"><span class="feature-num">03</span><h3 data-i18n="f3t">Evaluation</h3><p data-i18n="f3d">Each candidate shows its evaluation so you can compare lines at a glance.</p></article>
-            <article class="feature"><span class="feature-num">04</span><h3 data-i18n="f4t">Adjustable depth</h3><p data-i18n="f4d">Choose how deep the engine searches, trading speed for accuracy.</p></article>
-            <article class="feature"><span class="feature-num">05</span><h3 data-i18n="f5t">For study and review</h3><p data-i18n="f5d">Built for analyzing positions and reviewing finished games. Not for use during rated games.</p></article>
-            <article class="feature"><span class="feature-num">06</span><h3 data-i18n="f6t">Accurate positions</h3><p data-i18n="f6d">Castling rights are tracked correctly, so analyzed positions stay accurate.</p></article>
+            <article class="feature feature-hero">
+              <span class="feature-num">01</span>
+              <h3 data-i18n="f1t">Stockfish 18</h3>
+              <p data-i18n="f1d">
+                Full WASM engine running in a web worker, so the page stays responsive.
+              </p>
+            </article>
+
+            <article class="feature">
+              <span class="feature-num">02</span>
+              <h3 data-i18n="f2t">Multi-line analysis</h3>
+              <p data-i18n="f2d">
+                See several candidate moves at once, drawn as arrows on the board.
+              </p>
+            </article>
+
+            <article class="feature">
+              <span class="feature-num">03</span>
+              <h3 data-i18n="f3t">Evaluation</h3>
+              <p data-i18n="f3d">
+                Each candidate shows its evaluation so you can compare lines at a glance.
+              </p>
+            </article>
+
+            <article class="feature">
+              <span class="feature-num">04</span>
+              <h3 data-i18n="f4t">Adjustable depth</h3>
+              <p data-i18n="f4d">
+                Choose how deep the engine searches, trading speed for accuracy.
+              </p>
+            </article>
+
+            <article class="feature">
+              <span class="feature-num">05</span>
+              <h3 data-i18n="f5t">For study and review</h3>
+              <p data-i18n="f5d">
+                Built for analyzing positions and reviewing finished games. Not for use during rated games.
+              </p>
+            </article>
+
+            <article class="feature">
+              <span class="feature-num">06</span>
+              <h3 data-i18n="f6t">Accurate positions</h3>
+              <p data-i18n="f6d">
+                Castling rights are tracked correctly, so analyzed positions stay accurate.
+              </p>
+            </article>
           </div>
         </div>
       </section>
@@ -110,11 +239,19 @@
         <div class="download-inner">
           <div>
             <h2 data-i18n="bandTitle">Ready when you are.</h2>
-            <p data-i18n="bandLead">Early access ZIP. Unzip, load unpacked, play. Free.</p>
+            <p data-i18n="bandLead">
+              Early access ZIP. Unzip, load unpacked, play. Free.
+            </p>
           </div>
+
           <div class="tc-actions">
-            <a class="tc-button tc-button-primary" href="https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip" rel="noopener" data-i18n="downloadBtn">Download ZIP</a>
-            <a class="tc-button tc-button-secondary" href="https://saweria.co/BagasValzz" rel="noopener" target="_blank" data-i18n="donBtn">Support on Saweria</a>
+            <a class="tc-button tc-button-primary" href="https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip" rel="noopener" data-i18n="downloadBtn">
+              Download ZIP
+            </a>
+
+            <a class="tc-button tc-button-secondary" href="https://saweria.co/BagasValzz" rel="noopener" target="_blank" data-i18n="donBtn">
+              Support on Saweria
+            </a>
           </div>
         </div>
       </section>
@@ -124,26 +261,113 @@
     <section class="page section" id="page-install">
       <div class="section-inner">
         <p class="section-kicker" data-i18n="installKicker">Install</p>
-        <h2 data-i18n="installTitle">Load unpacked. Start a game.</h2>
-        <p class="section-lead" data-i18n="installLead">Two paths. Desktop first, mobile if you are on Android with Lemur.</p>
+
+        <h2 data-i18n="installTitle">
+          Load unpacked. Start a game.
+        </h2>
+
+        <p class="section-lead" data-i18n="installLead">
+          Two paths. Desktop first, mobile if you are on Android with Lemur.
+        </p>
+
         <div class="tabs" role="tablist" aria-label="Install platform">
-          <button type="button" role="tab" id="tab-pc" data-tab="pc" aria-selected="true" aria-controls="panel-pc" tabindex="0" data-i18n="tabPc">Desktop</button>
-          <button type="button" role="tab" id="tab-mob" data-tab="mob" aria-selected="false" aria-controls="panel-mob" tabindex="-1" data-i18n="tabMob">Mobile</button>
+          <button type="button" role="tab" id="tab-pc" data-tab="pc" aria-selected="true" aria-controls="panel-pc" tabindex="0" data-i18n="tabPc">
+            Desktop
+          </button>
+
+          <button type="button" role="tab" id="tab-mob" data-tab="mob" aria-selected="false" aria-controls="panel-mob" tabindex="-1" data-i18n="tabMob">
+            Mobile
+          </button>
         </div>
+
         <div id="panel-pc" class="panel is-on" role="tabpanel" aria-labelledby="tab-pc">
           <div class="step-list">
-            <div class="step"><div class="step-num">01</div><div><h3 data-i18n="pc1t">Download the ZIP</h3><p data-i18n="pc1d">Use the button above or in the nav. Unzip so you can see manifest.json.</p></div></div>
-            <div class="step"><div class="step-num">02</div><div><h3 data-i18n="pc2t">Open extensions</h3><p data-i18n-html="pc2d">Go to <code>chrome://extensions</code> (Chrome / Brave) or <code>edge://extensions</code> (Edge).</p></div></div>
-            <div class="step"><div class="step-num">03</div><div><h3 data-i18n="pc3t">Developer mode</h3><p data-i18n="pc3d">Toggle Developer mode on (top right). Click Load unpacked and select the unzipped folder.</p></div></div>
-            <div class="step"><div class="step-num">04</div><div><h3 data-i18n="pc4t">Open Chess.com</h3><p data-i18n="pc4d">Start a game or puzzle. The Mate.ai widget sits on the board.</p></div></div>
+            <div class="step">
+              <div class="step-num">01</div>
+              <div>
+                <h3 data-i18n="pc1t">Download the ZIP</h3>
+                <p data-i18n="pc1d">
+                  Use the button above or in the nav. Unzip so you can see manifest.json.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">02</div>
+              <div>
+                <h3 data-i18n="pc2t">Open extensions</h3>
+                <p data-i18n-html="pc2d">
+                  Go to <code>chrome://extensions</code> (Chrome / Brave) or <code>edge://extensions</code> (Edge).
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">03</div>
+              <div>
+                <h3 data-i18n="pc3t">Developer mode</h3>
+                <p data-i18n="pc3d">
+                  Toggle Developer mode on (top right). Click Load unpacked and select the unzipped folder.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">04</div>
+              <div>
+                <h3 data-i18n="pc4t">Open Chess.com</h3>
+                <p data-i18n="pc4d">
+                  Start a game or puzzle. The Mate.ai widget sits on the board.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+
         <div id="panel-mob" class="panel" role="tabpanel" aria-labelledby="tab-mob" hidden>
           <div class="step-list">
-            <div class="step"><div class="step-num">01</div><div><h3 data-i18n="mob1t">Install Lemur Browser</h3><p data-i18n="mob1d">From the Play Store. Lemur can load Chrome-style extensions on Android.</p></div></div>
-            <div class="step"><div class="step-num">02</div><div><h3 data-i18n="mob2t">Download and unzip</h3><p data-i18n="mob2d">Save the ZIP on the phone and extract it with Files or any zip tool.</p></div></div>
-            <div class="step"><div class="step-num">03</div><div><h3 data-i18n="mob3t">Load unpacked</h3><p data-i18n-html="mob3d">In Lemur open Extensions (menu, or try <code>chrome://extensions</code>). Enable Developer mode, Load unpacked, point at the folder.</p></div></div>
-            <div class="step"><div class="step-num">04</div><div><h3 data-i18n="mob4t">Use it on Chess.com</h3><p data-i18n="mob4d">Open Chess.com inside Lemur. iOS Safari cannot load this extension type.</p><p class="note" data-i18n="mobNote">Android only for mobile. Desktop path above is the reliable route.</p></div></div>
+            <div class="step">
+              <div class="step-num">01</div>
+              <div>
+                <h3 data-i18n="mob1t">Install Lemur Browser</h3>
+                <p data-i18n="mob1d">
+                  From the Play Store. Lemur can load Chrome-style extensions on Android.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">02</div>
+              <div>
+                <h3 data-i18n="mob2t">Download and unzip</h3>
+                <p data-i18n="mob2d">
+                  Save the ZIP on the phone and extract it with Files or any zip tool.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">03</div>
+              <div>
+                <h3 data-i18n="mob3t">Load unpacked</h3>
+                <p data-i18n-html="mob3d">
+                  In Lemur open Extensions (menu, or try <code>chrome://extensions</code>). Enable Developer mode, Load unpacked, point at the folder.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">04</div>
+              <div>
+                <h3 data-i18n="mob4t">Use it on Chess.com</h3>
+                <p data-i18n="mob4d">
+                  Open Chess.com inside Lemur. iOS Safari cannot load this extension type.
+                </p>
+                <p class="note" data-i18n="mobNote">
+                  Android only for mobile. Desktop path above is the reliable route.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -153,12 +377,43 @@
     <section class="page section" id="page-tutorial">
       <div class="section-inner">
         <p class="section-kicker" data-i18n="tutKicker">Tutorial</p>
+
         <h2 data-i18n="tutTitle">How to use it.</h2>
-        <p class="section-lead" data-i18n="tutLead">Three steps from first open to first analysis.</p>
+
+        <p class="section-lead" data-i18n="tutLead">
+          Three steps from first open to first analysis.
+        </p>
+
         <div class="step-list">
-          <div class="step"><div class="step-num">01</div><div><h3 data-i18n="use1t">Open a position</h3><p data-i18n="use1d">Start the analysis on a position you want to study. Choose the depth you need.</p></div></div>
-          <div class="step"><div class="step-num">02</div><div><h3 data-i18n="use2t">Read the arrows</h3><p data-i18n="use2d">Each arrow is a candidate move with its evaluation. Compare them to understand the position.</p></div></div>
-          <div class="step"><div class="step-num">03</div><div><h3 data-i18n="use3t">Review after the game</h3><p data-i18n="use3d">Use Mate.ai to study positions after a game ends. Keep it out of rated games, which must be played fairly.</p></div></div>
+          <div class="step">
+            <div class="step-num">01</div>
+            <div>
+              <h3 data-i18n="use1t">Open a position</h3>
+              <p data-i18n="use1d">
+                Start the analysis on a position you want to study. Choose the depth you need.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">02</div>
+            <div>
+              <h3 data-i18n="use2t">Read the arrows</h3>
+              <p data-i18n="use2d">
+                Each arrow is a candidate move with its evaluation. Compare them to understand the position.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">03</div>
+            <div>
+              <h3 data-i18n="use3t">Review after the game</h3>
+              <p data-i18n="use3d">
+                Use Mate.ai to study positions after a game ends. Keep it out of rated games, which must be played fairly.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -167,12 +422,22 @@
     <section class="page section" id="page-donate">
       <div class="section-inner">
         <p class="section-kicker" data-i18n="donKicker">Support</p>
+
         <h2 data-i18n="donTitle">Keep it free.</h2>
-        <p class="section-lead" data-i18n="donLead">Mate.ai is free. If it helps you, a tip on Saweria keeps development going.</p>
+
+        <p class="section-lead" data-i18n="donLead">
+          Mate.ai is free. If it helps you, a tip on Saweria keeps development going.
+        </p>
+
         <div class="donate-card">
-          <p data-i18n="donNote">Not required. Downloads stay free either way.</p>
+          <p data-i18n="donNote">
+            Not required. Downloads stay free either way.
+          </p>
+
           <a class="tc-button tc-button-primary donate-btn" href="https://saweria.co/BagasValzz" rel="noopener" target="_blank">
-            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            </svg>
             <span data-i18n="donBtn">Support on Saweria</span>
           </a>
         </div>
@@ -183,12 +448,25 @@
     <section class="page section" id="page-credits">
       <div class="section-inner">
         <p class="section-kicker" data-i18n="crKicker">Credits</p>
+
         <h2 data-i18n="crTitle">Who built this.</h2>
+
         <div class="credits-card">
-          <p data-i18n-html="crBuilt">Built by <strong>BagasValzz</strong>.</p>
-          <p data-i18n="crEngine">Engine: Stockfish 18 (WASM). UI: liquid glass overlay on Chess.com.</p>
-          <p data-i18n="crOpen">100% open source. Read it, change it, and build on it.</p>
-          <p data-i18n="crContact">Need me: Discord.</p>
+          <p data-i18n-html="crBuilt">
+            Built by <strong>BagasValzz</strong>.
+          </p>
+
+          <p data-i18n="crEngine">
+            Engine: Stockfish 18 (WASM). UI: liquid glass overlay on Chess.com.
+          </p>
+
+          <p data-i18n="crOpen">
+            100% open source. Read it, change it, and build on it.
+          </p>
+
+          <p data-i18n="crContact">
+            Need me: Discord.
+          </p>
         </div>
       </div>
     </section>
@@ -198,19 +476,24 @@
     <div class="footer-inner">
       <div>
         <h3>Mate.ai</h3>
-        <p data-i18n="footerDesc">Free Stockfish 18 overlay for Chess.com. Early access.</p>
+        <p data-i18n="footerDesc">
+          Free Stockfish 18 overlay for Chess.com. Early access.
+        </p>
       </div>
+
       <div class="footer-links">
         <a href="#install" data-i18n="navInstall">Install</a>
         <a href="#credits" data-i18n="navCredits">Credits</a>
         <a href="https://github.com/user-attachments/files/35208145/MateAI-EarlyAccess.zip" rel="noopener" data-i18n="navDownload">Download</a>
         <a href="https://saweria.co/BagasValzz" rel="noopener" target="_blank">Saweria</a>
       </div>
+
       <div class="footer-links">
         <a href="https://github.com/darkymark5511-png/mate-ai" rel="noopener">GitHub</a>
         <span data-i18n="footerEngine">Stockfish 18 WASM</span>
       </div>
     </div>
+
     <div class="footer-bottom">
       <span data-i18n="footerCopy">Mate.ai · Early Access · Free</span>
       <span>BagasValzz</span>
